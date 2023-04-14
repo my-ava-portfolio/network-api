@@ -50,10 +50,10 @@ jobs:
       shell: bash
       run: |
         source .venv/bin/activate
-        python -m pytest --db-loading=true --cov=portfolio-back --cov-report=xml tests/
+        python -m pytest --cov=portfolio-back --cov-report=xml tests/
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
+      uses: codecov/codecov-action@v3
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
 
