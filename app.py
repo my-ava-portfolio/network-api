@@ -8,11 +8,12 @@ from network_api.config import settings
 from network_api.routers import network_api_routes
 
 
-def build_openapi_yml() -> None:
+def build_openapi_yml() -> bool:
     if settings.OPENAPI_STATUS == "enabled":
         with open("openapi.yaml", "wb+") as output:
             api_doc_schema = OpenAPISchemaResponse(content=app.openapi_schema, media_type=OpenAPIMediaType.OPENAPI_YAML)
             output.write(api_doc_schema.body)
+        return True
 
 
 def set_app() -> Starlite:
@@ -34,5 +35,6 @@ def set_app() -> Starlite:
 app = set_app()
 
 if __name__ == "__main__":
-    build_openapi_yml()
-    uvicorn.run(app, host="0.0.0.0", port=1111)
+    doc_enabled = build_openapi_yml()
+    if not doc_enabled:
+        uvicorn.run(app, host="0.0.0.0", port=1111)
