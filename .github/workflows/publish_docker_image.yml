@@ -1,0 +1,30 @@
+name: Publish Docker image
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Image version'
+        required: true
+        default: 'latest'
+
+jobs:
+  publish-docker-image:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Loggin
+      run: |
+        echo $CR_PAT | docker login ghcr.io -u amauryval --password-stdin
+      env:
+        CR_PAT: ${{ secrets.CR_PAT }}
+
+    - name: Build
+      run: |
+        docker build . --tag ghcr.io/my-ava-portfolio/${{ github.event.repository.name }}:${{ github.event.inputs.version }}
+
+    - name: Push
+      run: |
+        docker push ghcr.io/my-ava-portfolio/${{ github.event.repository.name }}:${{ github.event.inputs.version }}
