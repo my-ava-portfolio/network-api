@@ -63,7 +63,6 @@ jobs:
         mkdir _build/
         source .venv/bin/activate
         python app.py
-        wget -O openapi.yaml http://0.0.0.0:1111/schema/openapi.yaml
 
     - name: redoc-cli test
       uses: seeebiii/redoc-cli-github-action@v10
