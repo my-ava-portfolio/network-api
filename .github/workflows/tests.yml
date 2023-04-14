@@ -61,6 +61,7 @@ jobs:
       shell: bash
       run: |
         mkdir _build/
+        source .venv/bin/activate
         python app.py
         wget -O openapi.yaml http://0.0.0.0:1111/schema/openapi.yaml
 
