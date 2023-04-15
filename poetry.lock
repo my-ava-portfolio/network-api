@@ -329,7 +329,7 @@ python-versions = ">=3.8"
 
 [[package]]
 name = "osmrx"
-version = "0.0.8"
+version = "0.0.9"
 description = ""
 category = "main"
 optional = false
@@ -707,7 +707,7 @@ standard = ["colorama (>=0.4)", "httptools (>=0.5.0)", "python-dotenv (>=0.13)",
 [metadata]
 lock-version = "1.1"
 python-versions = "3.11.0"
-content-hash = "dd78bc87c81af13b048b1e50bc40ed49d41466602018c9e0d55119eb75511643"
+content-hash = "883b8bb02a8077f4bec7e2469393f9528821e2c0660e11c252c506a61f43e94f"
 
 [metadata.files]
 anyio = [
@@ -1286,8 +1286,8 @@ numpy = [
     {file = "numpy-1.24.2.tar.gz", hash = "sha256:003a9f530e880cb2cd177cba1af7220b9aa42def9c4afc2a2fc3ee6be7eb2b22"},
 ]
 osmrx = [
-    {file = "osmrx-0.0.8-py3-none-any.whl", hash = "sha256:839bc46bbb8a764909fe10043008d4c2464c17d60a1ea3dcb3028663e3d2d200"},
-    {file = "osmrx-0.0.8.tar.gz", hash = "sha256:e3c41c07a4629493f83bb8c92ae3f14d408198ddffe6cefdf2d2c63ab1d4e252"},
+    {file = "osmrx-0.0.9-py3-none-any.whl", hash = "sha256:ec694137c4cf20f61a1f56813f93871697f9b8699d99b8a32f8cfda6afed8419"},
+    {file = "osmrx-0.0.9.tar.gz", hash = "sha256:bad6f2717a62a5ae22ed7cc56bddd0f446d652ce972e4f53022ba37ee04b8e9f"},
 ]
 packaging = [
     {file = "packaging-23.1-py3-none-any.whl", hash = "sha256:994793af429502c4ea2ebf6bf664629d07c1a9fe974af92966e4b8d2df7edc61"},
