@@ -34,4 +34,4 @@ USER ava
 
 CMD ["/bin/bash", "-c"]
 
-ENTRYPOINT gunicorn --bind 0.0.0.0:5000 app:app --worker-class uvicorn.workers.UvicornWorker
+ENTRYPOINT gunicorn --bind 0.0.0.0:5000 app:app --worker-class uvicorn.workers.UvicornWorker  --timeout 600
