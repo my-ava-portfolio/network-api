@@ -13,11 +13,12 @@ class Settings:
 
     ORIGINS = [
         "http://localhost:4200",
+        "https://portfolio.amaury-valorge.com"
     ]
     API_PREFIX = "/api/v1/network-api"
 
     # Environment variables
-    OPENAPI_STATUS: str = os.getenv("OPENAPI_STATUS")
+    OPENAPI_STATUS: str = os.getenv("OPENAPI_STATUS", "disabled")
 
 
 settings = Settings()
