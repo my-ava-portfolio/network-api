@@ -13,8 +13,13 @@ def url_prefix():
 
 
 @pytest.fixture()
-def steps_point() -> List[str]:
+def steps_point_2_nodes() -> List[str]:
     return ["POINT(4.0793058 46.0350304)", "POINT(4.0725246 46.0397676)"]
+
+
+@pytest.fixture()
+def steps_point_3_nodes() -> List[str]:
+    return ["POINT(4.0793058 46.0350304)", "POINT(4.0725246 46.0397676)", "POINT(4.0793058 46.0350304)"]
 
 
 @pytest.fixture()
