@@ -13,7 +13,8 @@ class Settings:
 
     ORIGINS = [
         "http://localhost:4200",
-        "https://portfolio.amaury-valorge.com"
+        "https://portfolio.amaury-valorge.com",
+        "https://preprod.amaury-valorge.com"
     ]
     API_PREFIX = "/api/v1"
 
