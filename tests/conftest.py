@@ -1,7 +1,7 @@
 from typing import List
 
 import pytest
-from starlite.testing import TestClient
+from litestar.testing import TestClient
 
 from app import app
 from network_api.config import settings
@@ -23,12 +23,12 @@ def steps_point_3_nodes() -> List[str]:
 
 
 @pytest.fixture()
-def pedestrian_mode() -> List[str]:
+def pedestrian_mode() -> str:
     return "pedestrian"
 
 
 @pytest.fixture()
-def vehicle_mode() -> List[str]:
+def vehicle_mode() -> str:
     return "vehicle"
 
 

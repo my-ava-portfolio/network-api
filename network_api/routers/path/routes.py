@@ -1,8 +1,9 @@
-from typing import List, Tuple
+from typing import List
+
+from litestar import Router, get, Controller
 
 from osmrx.main.roads import GraphAnalysis
 from shapely.wkt import loads
-from starlite import Controller, get, Router
 
 
 class ShortestPathController(Controller):
@@ -25,6 +26,3 @@ router = Router(
     route_handlers=[ShortestPathController],
     dependencies={}
 )
-
-
-
