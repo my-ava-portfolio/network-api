@@ -1,27 +1,18 @@
 import uvicorn
-from starlite import Starlite, CORSConfig, Provide, OpenAPIConfig, Router
-
-from starlite.openapi.controller import OpenAPISchemaResponse
-from starlite.enums import OpenAPIMediaType
+from litestar import Litestar, Router
+from litestar.config.cors import CORSConfig
+from litestar.openapi import OpenAPIConfig
 
 from network_api.config import settings
 from network_api.routers import network_api_routes
 
 
-def build_openapi_yml() -> bool:
-    if settings.OPENAPI_STATUS == "enabled":
-        with open("openapi.yaml", "wb+") as output:
-            api_doc_schema = OpenAPISchemaResponse(content=app.openapi_schema, media_type=OpenAPIMediaType.OPENAPI_YAML)
-            output.write(api_doc_schema.body)
-        return True
-
-
-def set_app() -> Starlite:
+def set_app() -> Litestar:
     open_api_enabled = settings.OPENAPI_STATUS == "enabled"
 
     portfolio_base_route = Router(path=settings.API_PREFIX, route_handlers=network_api_routes)
 
-    application = Starlite(
+    application = Litestar(
         openapi_config=OpenAPIConfig(
             title=settings.PROJECT_NAME, version=settings.PROJECT_NAME
         ) if open_api_enabled else None,
@@ -35,6 +26,4 @@ def set_app() -> Starlite:
 app = set_app()
 
 if __name__ == "__main__":
-    doc_enabled = build_openapi_yml()
-    if not doc_enabled:
-        uvicorn.run(app, host="0.0.0.0", port=1111)
+    uvicorn.run(app, host="0.0.0.0", port=1111)
